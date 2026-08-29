@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroLeadForm from '../components/HeroLeadForm.astro';
+import ServiceBand from '../components/ServiceBand.astro';
+import Toc from '../components/Toc.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../lib/site.js';
+
+const bandBullets = [
+  'Full tear-off or overlay, whichever your home actually needs, explained before you commit',
+  'We walk Heritage Preservation rules for you if your home is in one of Omaha’s five historic districts',
+  'Call and get a price range on the spot, 7am to 7pm',
+  'Send a photo and a rough square footage, get a ballpark back fast',
+];
+
+const tocLinks = [
+  { href: '#what-it-involves', label: 'What a full re-side involves' },
+  { href: '#timeline', label: 'How long it takes' },
+  { href: '#historic-districts', label: "Omaha's historic districts" },
+  { href: '#soffit-fascia', label: 'Soffit & fascia' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+const faqItems = [
+  { q: 'How long does a full siding replacement take in Omaha?', a: 'Locally published timelines from real Omaha contractors range from about 3-7 days to 1-2 weeks for most homes, weather and home size are the two biggest swing factors, and a contractor should build weather delays into the schedule rather than promise a fixed date.' },
+  { q: 'Can I install new siding myself to save money?', a: "You can, but the City of Omaha still requires a building permit for siding work regardless of who does it, and if your home sits in one of the city's five Heritage Preservation districts, exterior material changes are reviewed against the Secretary of the Interior's Standards, that review applies to a DIY job the same as a contractor's." },
+];
+---
+<BaseLayout
+  title="Siding Installation & Replacement in Omaha, NE"
+  description="Full siding installation and replacement in Omaha, NE: what the job involves, real local timelines, and how Omaha's historic-district rules affect older neighborhoods."
+  extraServices={['Siding installation', 'Siding replacement', 'Soffit and fascia installation']}
+>
+  <div class="hero">
+    <img class="hero-bg" src="/images/siding-panel-installation-in-progress.jpg" alt="New horizontal siding panels being installed over exposed house wrap during a residential re-side" width="1600" height="900" loading="eager" fetchpriority="high" />
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Installation &amp; replacement</p>
+        <h1>Siding installation &amp; replacement in Omaha, NE</h1>
+        <p class="lede">A full re-side, done right: the tear-off or overlay decision, a realistic timeline, and Omaha's own historic-district rules explained before anyone starts.</p>
+        <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      </div>
+      <HeroLeadForm />
+    </div>
+  </div>
+
+  <ServiceBand headline="Full siding replacement across the Omaha metro, priced honestly and scheduled realistically." bullets={bandBullets} />
+
+  <section id="what-it-involves">
+    <div class="wrap">
+      <Toc links={tocLinks} />
+      <p class="eyebrow">The job itself</p>
+      <h2>What a full re-side actually involves</h2>
+      <p class="lead-out">A full replacement means the old siding comes off (or, in some cases, gets covered with an approved overlay), the sheathing underneath gets checked and repaired where needed, a weather-resistant barrier goes on, and the new siding goes up to the manufacturer's fastening spec. Which path makes sense depends on your home's age and neighborhood as much as your budget.</p>
+      <ul class="facts">
+        <li><b>South Elkhorn has an older 1970s pocket</b>Even inside Elkhorn, one of west Omaha's newer growth corridors, homes on the eastern side of South Elkhorn were largely built in the 1970s, an older cohort inside a younger area, and a real example of why "how old is the siding" isn't answered by zip code alone.<cite>Homes.com, South Elkhorn Neighborhood Guide</cite></li>
+        <li><b>Old Millard East runs older than Millard overall</b>Old Millard East's median home was built in 1964, older than the broader Millard area (96.1% of which was built 1970-1999). Millard itself was an independent town for nearly a century before Omaha annexed it in 1971, raised ranch and split-level homes dominate from that era.<cite>Homes.com, Old Millard East Neighborhood Guide</cite></li>
+        <li><b>Ralston skews midcentury too</b>Ralston, an incorporated Omaha suburb in Douglas County, has a housing market "made up mostly of midcentury single-family homes," ranch-style and split-level, the traditional Nebraska suburban style of that era.<cite>Homes.com, Ralston NE City Guide</cite></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="timeline" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">What to expect</p>
+      <h2>How long does it actually take?</h2>
+      <div class="plain">
+        <p>Two real Omaha contractors publish two different, overlapping timelines: one puts most re-side jobs at <strong>3-7 days</strong>, another puts theirs at <strong>1-2 weeks</strong>, both note weather as the main variable.<cite>Turtle Roofing, "Siding Replacement in Omaha, NE"</cite> Expect something in that range for an average single-family home, longer for larger homes, complex trim, or a stretch of bad weather.</p>
+      </div>
+      <ol class="steps">
+        <li><div><b>You call or send details</b>Rough square footage, current material, and whether it's a full replacement or a repair. That's enough to talk through timeline and a price range.</div></li>
+        <li><div><b>We scope the job</b>Tear-off vs. overlay, sheathing condition, and whether your home falls inside a Heritage Preservation district get checked before a number is final.</div></li>
+        <li><div><b>Materials and schedule get set</b>You pick the material (see the <a href="/vinyl-siding-installation/">vinyl</a> and <a href="/fiber-cement-siding-installation/">fiber cement &amp; engineered wood</a> pages), and a realistic start date gets set around Omaha's weather.</div></li>
+        <li><div><b>Install, inspect, done</b>The city permit gets pulled, the work goes in, and it's inspected to close it out.</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="historic-districts">
+    <div class="wrap">
+      <p class="eyebrow">Older Omaha neighborhoods</p>
+      <h2>Omaha's historic districts change the rules</h2>
+      <p class="lead-out">Omaha has had a Heritage Preservation Ordinance since 1977, strengthened in 1981. Five locally-designated Omaha Heritage Preservation districts, including West Central-Cathedral, Bemis Park, and the Old Market, plus over 100 individually designated landmarks, are subject to the Secretary of the Interior's Standards for Rehabilitation for any exterior change, and that includes re-siding.<cite>City of Omaha Heritage Preservation, "Preservation Guidelines"</cite> If your home is in one of these districts, or in an older neighborhood like Dundee, Benson, or Field Club, the material you're allowed to use is narrower than it would be elsewhere in the metro. We cover the specific material rule on the <a href="/fiber-cement-siding-installation/">fiber cement &amp; engineered wood page</a> and the <a href="/vinyl-siding-installation/">vinyl page</a>.</p>
+    </div>
+  </section>
+
+  <section id="soffit-fascia" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Often skipped, worth doing right</p>
+      <h2>Soffit &amp; fascia, done with the same job</h2>
+      <p class="lead-out">Soffit and fascia are the finish pieces most competitor sites give a single paragraph: the fascia is the board that caps the roof edge behind the gutter, the soffit is the underside panel that ventilates the attic. Both take real weather exposure and both usually get replaced during a full re-side, since matching new siding to old, weathered trim looks worse than doing all of it at once. We haven't built out Omaha-specific data for this piece of the job yet, so we're saying that plainly rather than dressing up general trade knowledge as something more local than it is. Ask about it when you call; it's a straightforward add to a full replacement.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Get an estimate</p>
+      <h2>Get a real number, fast</h2>
+      <div class="plain">
+        <p>Call and you'll get a price range on the spot, then a firm number once the job can be scoped. Send the details and a photo, and we'll come back to you the same day.</p>
+      </div>
+      <p style="margin-top:1.25rem;"><a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a></p>
+    </div>
+  </section>
+
+  <section id="faq" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Common questions</p>
+      <h2>Quick answers</h2>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>

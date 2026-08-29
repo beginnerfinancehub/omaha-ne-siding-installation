@@ -1,0 +1,15 @@
+---
+import { SITE } from '../lib/site.js';
+---
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-mark brand-mark"><img src="/favicon.svg" alt="" width="30" height="30" />{SITE.name}</p>
+    <p>Serving {SITE.areaServed.join(', ')} and the greater Omaha metro.<br>
+       <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a></p>
+    <p style="font-size:.85rem;opacity:.75;">Independent, locally-focused siding installation and repair information for the Omaha, Nebraska metro area. Not affiliated with any franchise. {SITE.name} is a referral and information resource, not a siding installation contractor: the actual estimate, materials, and installation or repair work is carried out by an independent, separately-owned local siding contractor, not by us. See our <a href="/privacy/">Privacy &amp; Terms</a>.</p>
+  </div>
+</footer>
+<div class="callbar">
+  <a class="btn btn-call" href={SITE.phoneHref}>Call now</a>
+  <a class="btn btn-quiet" href="/contact/">Send details</a>
+</div>

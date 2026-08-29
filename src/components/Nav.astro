@@ -1,0 +1,28 @@
+---
+import { SITE } from '../lib/site.js';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/siding-installation-cost/', label: 'Cost' },
+  { href: '/siding-installation-and-replacement/', label: 'Install & Replace' },
+  { href: '/siding-repair/', label: 'Repair' },
+  { href: '/storm-hail-damage-siding-repair/', label: 'Storm & Hail' },
+  { href: '/vinyl-siding-installation/', label: 'Vinyl' },
+  { href: '/fiber-cement-siding-installation/', label: 'Fiber Cement' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark brand-mark" href="/"><img src="/favicon.svg" alt="" width="36" height="36" />{SITE.name}<span>Omaha Metro · 402</span></a>
+    <a class="masthead-call" href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
+  </div>
+</header>
+<nav class="nav" aria-label="Primary">
+  <ul>
+    {links.map((l) => (
+      <li><a href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a></li>
+    ))}
+  </ul>
+</nav>

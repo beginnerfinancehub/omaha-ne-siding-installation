@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site.js';
+---
+<BaseLayout
+  title="Privacy & Terms"
+  description="Privacy policy and terms for this site: what we collect, how it is used, and how this site relates to the licensed siding contractor who does the work."
+>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Privacy &amp; Terms</h1>
+        <p class="lede">The short version first, full terms below. Call if anything here is unclear.</p>
+        <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">In short</p>
+      <div class="plain">
+        <p>We collect what you type into the contact form (name, phone or email, city, a message, and an optional photo) so we can get back to you about your siding project and connect you with the local contractor who does the work. We don't sell it to third-party lead brokers.</p>
+        <p>{SITE.name} is a local information and referral resource, not a siding installation company. The estimate, materials, and installation or repair work are carried out by an independent, separately-owned local siding contractor.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Privacy policy</p>
+      <h2>What we collect and why</h2>
+      <div class="plain">
+        <p><strong>Contact form.</strong> When you send your details or fill out the contact form, we collect your name, phone number or email, city or zip code, your message, and any photo you attach. We use it to follow up about your siding project, help price it, coordinate the work, and connect you with the local contractor who performs it. We don't sell or rent it to third-party lead brokers or use it for unrelated marketing.</p>
+        <p><strong>Phone calls.</strong> The number on this site may be a tracking number that forwards to a real phone answered personally. Calls may be recorded or monitored for quality and scheduling purposes.</p>
+        <p><strong>Analytics.</strong> This site uses Cloudflare Web Analytics to see which pages get visited. It does not use cookies, does not track you across other websites, and does not build a personal profile of you, which is why there is no cookie-consent banner here: there is nothing to consent to.</p>
+        <p><strong>Questions about your information.</strong> Use the <a href="/contact/">contact form</a> or call <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a> and we will answer directly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Terms of use</p>
+      <h2>How this site relates to the work that gets done</h2>
+      <div class="plain">
+        <p><strong>What this site is.</strong> {SITE.name} is an independent local information and referral resource covering siding installation, replacement, and repair in the Omaha, Nebraska metro area. It is not a siding installation company, is not a licensed contractor, and does not itself estimate, permit, or install or repair siding.</p>
+        <p><strong>Who does the work.</strong> Siding work referred through this site is performed by an independently owned and operated local siding contractor, a separate business from {SITE.name}. That contractor, not {SITE.name}, is responsible for the quality, safety, pricing, licensing, permitting, and insurance of the work it performs. {SITE.name} does not supervise, direct, or control how that work is carried out.</p>
+        <p><strong>Estimates, not guarantees.</strong> Cost ranges on this site are estimates built from published local and national pricing data. They are not a quote. A firm price comes only after your home can actually be scoped.</p>
+        <p><strong>No fabricated claims.</strong> This site does not publish invented reviews, fabricated years in business, or staff who do not exist. If a claim like that appears anywhere here, it is a mistake; tell us and we will fix it.</p>
+        <p><strong>Not professional advice.</strong> The regulatory, storm-history, and cost information here is general and educational. It is not legal, engineering, insurance, or permitting advice, and the city's requirements and your own policy or site conditions govern any actual project.</p>
+        <p><strong>Contact.</strong> Questions about these terms: call <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a> or use the <a href="/contact/">contact form</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Get in touch</h2>
+      <p class="lead-out">Call, or send your property details through the contact page, and we'll get you an estimate.</p>
+      <p><a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      <a class="btn btn-quiet" href="/contact/">Go to Contact</a></p>
+    </div>
+  </section>
+</BaseLayout>

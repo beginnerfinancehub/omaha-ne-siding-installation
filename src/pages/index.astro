@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroLeadForm from '../components/HeroLeadForm.astro';
+import ServiceBand from '../components/ServiceBand.astro';
+import FactRail from '../components/FactRail.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../lib/site.js';
+
+const bandBullets = [
+  'Every major material: vinyl, fiber cement, steel, engineered wood, priced honestly up front',
+  'Storm and hail damage repair, we walk you through the insurance side, not just the install',
+  'Call and get a price range on the spot, 7am to 7pm',
+  'Send a photo of the siding and get a ballpark number back fast',
+];
+const factRailItems = [
+  { k: '1822 to the 2000s', v: "Omaha-metro homes span two centuries, Bellevue's 1822 founding to Gretna's newest builds" },
+  { k: '$500K+ in one storm', v: 'The Aug. 2011 Eppley Airfield hailstorm, real recorded damage, not an estimate' },
+  { k: '~28in of snow a year', v: 'Mostly Dec-Feb; winter lows dip to the mid-teens°F' },
+];
+
+const factItems = [
+  { b: "Dundee's median home dates to 1922", body: "One of Omaha's oldest, best-preserved neighborhoods, concentrated in Tudor Revival, American Foursquare, Colonial Revival, and Craftsman-bungalow styles; some homes were converted to multifamily use with brick additions in the 1960s-70s.", cite: 'Homes.com, Dundee Neighborhood Guide' },
+  { b: 'Elkhorn is mostly a 2000s build', body: "West Omaha's newer growth corridor is a housing market “consisting mainly of homes built in the 2000s,” New Traditional and Craftsman-style architecture, the newer end of the metro's age range.", cite: 'Homes.com, Elkhorn NE Homes for Sale & Real Estate' },
+  { b: 'Winter lows hit the mid-teens', body: "Omaha's winter average highs run in the mid-30s°F with lows near the mid-teens°F; January is usually coolest, and roughly 28 inches of snow falls most years, mostly December through February.", cite: 'Visit Omaha, "Omaha Weather"' },
+  { b: 'Real Omaha homeowners ask the same question', body: '"Any good siding companies?", "Contractor for windows and siding?", "Who do you trust for roofing and siding?" On r/Omaha, residents post variations of this repeatedly, a real, ongoing local search, not a guess.', cite: 'reddit.com/r/Omaha, 4 separate threads' },
+  { b: "Benson's median home was built in 1948", body: "Centered on 60th and Maple, Benson's housing stock ranges from midcentury cottages and ranch homes to Craftsman bungalows and Colonials, spanning roughly $70K to the mid-$400Ks depending on era and style.", cite: 'Homes.com, Benson Neighborhood Guide' },
+  { b: 'Field Club dates to 1915, listed since 2000', body: "A Midtown streetcar suburb next to Hanscom Park, Field Club's median home was built in 1915 (Queen Anne, Foursquare, Craftsman, and Tudor styles); the district joined the National Register of Historic Places on November 15, 2000.", cite: 'Homes.com, Field Club Neighborhood Guide; Wikipedia, Field Club Historic District' },
+  { b: 'Gretna is the newer end of the range', body: "56.9% of Gretna's housing was built in 2000 or later, 32.3% from 1970-1999, and just 0.7% predates 1940, one of the metro's newest housing stocks, Census-derived.", cite: 'NeighborhoodScout, Gretna NE Real Estate Market' },
+  { b: 'Bellevue traces to an 1822 fur-trading post', body: "Nebraska's oldest city began as a Missouri Fur Company trading post; Peter Sarpy later ran it and, in 1854, lost the bid to make Bellevue the territorial capital, Omaha won instead.", cite: 'Bellevue University, Freeman/Lozier Library' },
+  { b: 'A single storm topped $500,000 in damage', body: 'On August 18, 2011, softball-size hail (4.25 in.) hit Eppley Airfield with a 92 mph wind gust that evening; damage at the airport alone topped $500,000, and Douglas County saw more than 1,600 auto insurance claims from the same storm.', cite: 'NOAA/NCEI Storm Events Database; KMTV 3 News Now' },
+  { b: "Regency's median home was built in 1976", body: 'A west-Omaha neighborhood near I-680 in the Millard/District 66 area, most Regency homes date to the 1970s and ’80s.', cite: 'Homes.com, Regency Neighborhood Guide' },
+  { b: 'Deer Ridge skews even older, 1967', body: "West Omaha's Deer Ridge is mostly midcentury ranch and split-level homes, many now updated after 50-plus years.", cite: 'Homes.com, Deer Ridge Neighborhood Guide' },
+  { b: 'Applewood Heights: 1986, New Traditionals', body: 'A Millard-district neighborhood where most homes are New Traditionals built in the 1980s, gabled rooflines, dormer windows, brick or stone exteriors.', cite: 'Homes.com, Applewood Heights Neighborhood Guide' },
+];
+
+const faqItems = [
+  { q: 'What does siding installation cost in Omaha?', a: 'It depends on the material. Locally published ranges run about $4-$11 per sq ft installed for vinyl, $6-$13 for insulated or premium vinyl, $8-$15 for fiber cement (James Hardie), $7-$15 for steel, and $7-$16 for engineered wood. See the full cost page for how those ranges are built and sourced.' },
+  { q: 'Do I need a permit to replace siding in Omaha?', a: "Yes. The City of Omaha requires a building permit for siding work, the same permit category as roofing, decks, and fences, with a $41 minimum fee for projects up to $2,000 in labor and material value. Painting or flooring doesn't need one; siding does." },
+];
+---
+<BaseLayout
+  title="Siding Installation in Omaha, NE"
+  description="Siding installation, replacement, and storm/hail repair across the Omaha, NE metro: real material pricing, permit facts, and honest local storm history before anyone quotes you."
+  extraServices={['Siding installation', 'Siding replacement', 'Siding repair', 'Storm and hail damage siding repair', 'Vinyl siding installation', 'Fiber cement siding installation']}
+>
+  <div class="hero">
+    <img class="hero-bg" src="/images/omaha-siding-install-neighborhood.jpg" alt="A Midwest home partway through a siding replacement, old siding stripped on one section and new panels installed on another" width="1600" height="900" loading="eager" fetchpriority="high" />
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Omaha, Nebraska</p>
+        <h1>Siding installation, replacement &amp; repair in Omaha, NE</h1>
+        <p class="lede">Every major material, an honest local price range, and the storm and hail history most sites won't tell you. A real person answers, 7am to 7pm.</p>
+        <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      </div>
+      <HeroLeadForm />
+    </div>
+  </div>
+
+  <ServiceBand headline="Siding installation, replacement, and hail-damage repair across the Omaha metro. Get a real number today." bullets={bandBullets} />
+
+  <FactRail items={factRailItems} />
+
+  <section id="services">
+    <div class="wrap">
+      <p class="eyebrow">By material, by job type</p>
+      <h2>Pick the page that matches your project</h2>
+      <p class="lead-out">Each link below goes deep on one slice of the job, real Omaha pricing, permit rules, and the storm history that actually applies here.</p>
+      <ul class="services">
+        <li><a href="/siding-installation-cost/"><span class="svc-thumb"><img src="/images/siding-measurement-estimate-closeup-thumb.jpg" width="200" height="200" loading="lazy" alt="Measuring a section of exterior siding wall ahead of a cost estimate" /></span><span class="svc-title">Siding installation cost</span><span class="svc-sub">Real Omaha price signals by material, and the permit fee no one else lists</span></a></li>
+        <li><a href="/siding-installation-and-replacement/"><span class="svc-thumb"><img src="/images/siding-panel-installation-in-progress-thumb.jpg" width="200" height="200" loading="lazy" alt="New horizontal siding panels being installed over exposed house wrap during a residential re-side" /></span><span class="svc-title">Siding installation &amp; replacement</span><span class="svc-sub">What a full re-side involves here, timelines, and Omaha's historic-district rules</span></a></li>
+        <li><a href="/siding-repair/"><span class="svc-thumb"><img src="/images/siding-panel-repair-replacement-thumb.jpg" width="200" height="200" loading="lazy" alt="A damaged vinyl siding panel being removed for replacement, illustrating the repair process" /></span><span class="svc-title">Siding repair</span><span class="svc-sub">Patch, panel swap, or full replace, and how Omaha's older housing stock factors in</span></a></li>
+        <li><a href="/storm-hail-damage-siding-repair/"><span class="svc-thumb"><img src="/images/hail-damaged-siding-panel-closeup-thumb.jpg" width="200" height="200" loading="lazy" alt="Vinyl siding showing visible hail dents and pitting, the kind of storm damage this page covers" /></span><span class="svc-title">Storm &amp; hail damage repair</span><span class="svc-sub">Real Douglas County hail history and what the insurance process actually looks like</span></a></li>
+        <li><a href="/vinyl-siding-installation/"><span class="svc-thumb"><img src="/images/vinyl-siding-panels-clipped-into-place-thumb.jpg" width="200" height="200" loading="lazy" alt="New vinyl siding panels being clipped into place during installation" /></span><span class="svc-title">Vinyl siding installation</span><span class="svc-sub">The most common re-side material, what it costs, and where it's restricted here</span></a></li>
+        <li><a href="/fiber-cement-siding-installation/"><span class="svc-thumb"><img src="/images/fiber-cement-plank-siding-installation-thumb.jpg" width="200" height="200" loading="lazy" alt="Fiber-cement lap-plank siding being installed with a pneumatic nailer" /></span><span class="svc-title">Fiber cement &amp; engineered wood</span><span class="svc-sub">James Hardie and LP SmartSide, and why Omaha's own preservation rules favor one</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Omaha specifically</p>
+      <h2>Why does siding need an Omaha-specific answer?</h2>
+      <p class="lead-out">Because the metro's housing stock spans two centuries in named pockets, from Bellevue's 1822 origins to Gretna's 2000s-and-newer subdivisions, and because Omaha's own storms, permits, and historic-district rules shape the job in ways a generic cost-guide site never mentions.</p>
+      <ul class="facts">
+        {factItems.map((f) => (
+          <li><b>{f.b}</b>{f.body}<cite>{f.cite}</cite></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Vinyl, fiber cement, steel, or engineered wood</p>
+      <h2>Which material actually fits your home?</h2>
+      <p class="lead-out">There's no single right answer, it depends on your neighborhood, your home's age, and your budget. A quick, honest starting point:</p>
+      <div class="plain">
+        <p><strong>Vinyl</strong> is the most common re-side choice metro-wide and the least expensive, but a real Omaha contractor's own published figures put visible hail damage starting around 1-inch stones, and it's explicitly barred from Omaha's five historic-preservation districts. See the <a href="/vinyl-siding-installation/">vinyl page</a> for the full picture.</p>
+        <p><strong>Fiber cement (James Hardie)</strong> costs more but is the material Omaha's own Historic Preservation Guidelines name as the acceptable substitute in districts like Dundee, Benson, and Field Club, and a local 25-year specialist scores it 10/10 for durability against Nebraska's temperature swings. Full detail on the <a href="/fiber-cement-siding-installation/">fiber cement &amp; engineered wood page</a>.</p>
+        <p><strong>Steel</strong> is a real option here too. A 45-year Omaha company (Associated Siding &amp; Remodeling) sells and installs specific named brands, EDCO, Revere, and Rollex, and ties EDCO's warranty coverage directly to "areas like Omaha that experience severe storms."<cite>associatedsidingomaha.com</cite></p>
+        <p><strong>Engineered wood (LP SmartSide)</strong> scores well for impact and rot resistance in the same Nebraska-climate ranking that rates fiber cement highest, but carries a lower fire rating than fiber cement, a real consideration on close lot lines. More on the <a href="/fiber-cement-siding-installation/">merged material page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Get an estimate</p>
+      <h2>Get a real number, fast</h2>
+      <div class="plain">
+        <p>Call and you'll get a price range on the spot, then a firm number once the job can be scoped. Send the details and a photo, and we'll come back to you the same day.</p>
+        <p>{SITE.name} is a local information and referral resource. The estimate, materials, and installation or repair work are handled by an independent, separately-owned local siding contractor. Details in our <a href="/privacy/">Privacy &amp; Terms</a>.</p>
+      </div>
+      <p style="margin-top:1.25rem;"><a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="codes">
+        <span class="reveal-accent" aria-hidden="true"></span>
+        <div class="codes-body">
+          <h2>Permitted, coded, and weather-rated, the Omaha way</h2>
+          <p>Siding work here isn't a cash-and-install job. The City of Omaha requires a building permit for siding (a $41 minimum fee), the city's amended residential code sets a design wind speed of 105-120 mph for the structure siding attaches to, and five Heritage Preservation districts carry their own material rules.</p>
+          <p>We know that process cold. See the full <a href="/siding-installation-cost/">cost and permit walk-through</a>, or just call and we'll talk you through it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Common questions</p>
+      <h2>Quick answers</h2>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>

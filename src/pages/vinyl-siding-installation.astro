@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroLeadForm from '../components/HeroLeadForm.astro';
+import ServiceBand from '../components/ServiceBand.astro';
+import Toc from '../components/Toc.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../lib/site.js';
+
+const bandBullets = [
+  "Omaha's most common, most affordable re-side material, priced honestly",
+  "We'll tell you upfront if your home sits in a district where vinyl isn't allowed",
+  'Call and get a price range on the spot, 7am to 7pm',
+  'Send a photo and rough square footage, get a ballpark back fast',
+];
+
+const tocLinks = [
+  { href: '#where-common', label: 'Where vinyl is common here' },
+  { href: '#hail-fit', label: 'How it holds up to hail' },
+  { href: '#historic-restriction', label: 'Where it’s not allowed' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+const faqItems = [
+  { q: 'What does vinyl siding cost in Omaha?', a: 'Locally published ranges run about $4-$11 per sq ft installed for standard vinyl and $6-$13 for insulated or premium vinyl, built from real Omaha contractor pricing. See the full cost page for how those bands are sourced.' },
+  { q: 'Is vinyl siding allowed everywhere in Omaha?', a: "No. Omaha's own Historic Preservation Guidelines explicitly name vinyl as an inappropriate substitute material for historic properties and actively encourage removing existing vinyl siding from them. If your home is in one of the city's five Heritage Preservation districts, ask about fiber cement instead." },
+];
+---
+<BaseLayout
+  title="Vinyl Siding Installation in Omaha, NE"
+  description="Vinyl siding installation in Omaha, NE: real local cost, how it holds up to Nebraska hail, and where the city's historic-preservation rules restrict it."
+  extraServices={['Vinyl siding installation', 'Insulated vinyl siding installation']}
+>
+  <div class="hero">
+    <img class="hero-bg" src="/images/vinyl-siding-panels-clipped-into-place.jpg" alt="New vinyl siding panels being clipped into place during installation" width="1600" height="900" loading="eager" fetchpriority="high" />
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Vinyl siding</p>
+        <h1>Vinyl siding installation in Omaha, NE</h1>
+        <p class="lede">The most common re-side material in the metro, and the most affordable. Here's what it actually costs, how it holds up to Nebraska hail, and the one place in Omaha it isn't allowed.</p>
+        <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      </div>
+      <HeroLeadForm />
+    </div>
+  </div>
+
+  <ServiceBand headline="Vinyl siding installation across the Omaha metro, priced honestly and installed to code." bullets={bandBullets} />
+
+  <section id="where-common">
+    <div class="wrap">
+      <Toc links={tocLinks} />
+      <p class="eyebrow">A real local cohort, not a guess</p>
+      <h2>Where original vinyl is most likely to need replacing</h2>
+      <p class="lead-out">Vinyl became a standard re-side and new-construction material across the country from the 1970s through the 1990s, and Omaha's own housing-age data lines up with that: three named areas in the metro sit squarely in vinyl's likely-original-installation window.</p>
+      <ul class="facts">
+        <li><b>96.1% of Millard was built 1970-1999</b>Millard, a southwest Omaha neighborhood, is one of the most concentrated single-era housing stocks NeighborhoodScout tracks nationally, 96.1% built between 1970 and 1999, and 100% detached single-family. That's precisely vinyl's boom era.<cite>NeighborhoodScout, Omaha, NE (Millard) profile</cite></li>
+        <li><b>La Vista started as a $9,999-home planned community</b>La Vista began in 1959-60 as a planned development; the first 335 homes sold at $9,999 each, earning the nickname "House of Nines." Mid-century homes from that founding era still anchor many La Vista neighborhoods, another likely original-siding-age cohort.<cite>Apartments.com, La Vista, NE Area Guide</cite></li>
+        <li><b>Northwest Papillion added roughly 500 homes in the 1990s-2000s</b>The area around Schwer Park is "mostly residential, with about 500 homes built from the 1990s to the early 2000s," custom New Traditional homes built with all-brick or siding-and-brick construction, named by a local Realtor as "one of the most established neighborhoods in Papillion."<cite>Homes.com, Northwest Papillion Neighborhood Guide</cite></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="hail-fit" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Be realistic about this</p>
+      <h2>How vinyl actually holds up to Omaha hail</h2>
+      <div class="plain">
+        <p>A real Omaha-based siding and roofing contractor states that vinyl siding typically shows visible damage starting around 1-inch hail, smaller than the 1.5-inch-plus threshold where James Hardie fiber-cement siding starts showing damage.<cite>Royalty Roofing, "Siding Cost in Omaha, NE"</cite> Given how often Douglas County actually sees hail 2 inches and larger (see our <a href="/storm-hail-damage-siding-repair/">storm &amp; hail damage page</a>), that's worth weighing honestly against vinyl's lower upfront cost, not something to find out after the fact.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="historic-restriction">
+    <div class="wrap">
+      <p class="eyebrow">Read this before you commit to vinyl</p>
+      <h2>Where vinyl isn't allowed in Omaha</h2>
+      <p class="lead-out">Omaha's own Historic Preservation Guidelines, adopted by the Heritage Preservation Commission, are direct about this: "Do not cover or replace historic wood siding or features with synthetic materials such as aluminum, vinyl, or similar materials." The guidelines go further, stating "the removal of existing vinyl and aluminum siding is encouraged," not merely disallowed going forward, and separately flag that covering original material with vinyl or similar synthetic treatments can trap moisture inside a historic wall assembly.<cite>City of Omaha Heritage Preservation, Guidelines Chapter 2, Section 2.5</cite> If your home sits in one of Omaha's five Heritage Preservation districts, or is one of the city's 100-plus individually designated landmarks, fiber cement is the material the same guidelines name as acceptable, see our <a href="/fiber-cement-siding-installation/">fiber cement &amp; engineered wood page</a>.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Get an estimate</p>
+      <h2>Get a real number, fast</h2>
+      <div class="plain">
+        <p>Call and you'll get a price range on the spot, then a firm number once the job can be scoped. Send the details and a photo, and we'll come back to you the same day.</p>
+      </div>
+      <p style="margin-top:1.25rem;"><a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a></p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <p class="eyebrow">Common questions</p>
+      <h2>Quick answers</h2>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>

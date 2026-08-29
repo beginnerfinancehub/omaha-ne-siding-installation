@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroLeadForm from '../components/HeroLeadForm.astro';
+import ServiceBand from '../components/ServiceBand.astro';
+import PriceTiers from '../components/PriceTiers.astro';
+import Toc from '../components/Toc.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../lib/site.js';
+
+const bandBullets = [
+  'Real Omaha price bands by material, published up front, not hidden behind a form',
+  'The permit fee and code requirements folded into the real cost of the job',
+  'Call and get a price range on the spot, 7am to 7pm',
+  'Send a photo and rough square footage, get a ballpark back fast',
+];
+
+const tocLinks = [
+  { href: '#by-material', label: 'Cost by material' },
+  { href: '#permit', label: 'The permit fee' },
+  { href: '#code', label: "Omaha's building code" },
+  { href: '#timeline-cost', label: 'Timeline vs. cost' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+const priceTiers = [
+  { name: 'Vinyl, standard', price: '4-11', unit: 'sq ft', desc: 'The most common Omaha re-side material and the least expensive' },
+  { name: 'Vinyl, insulated/premium', price: '6-13', unit: 'sq ft', desc: 'Foam-backed panels, better impact and insulation value' },
+  { name: 'Fiber cement (James Hardie)', price: '8-15', unit: 'sq ft', desc: 'Higher upfront cost, the material Omaha’s own preservation rules favor' },
+  { name: 'Steel & metal', price: '7-15', unit: 'sq ft', desc: 'Sold locally under named brands like EDCO, Revere, and Rollex' },
+  { name: 'Engineered wood (LP SmartSide)', price: '7-16', unit: 'sq ft', desc: 'Wood-look panels, wider local range, see the note below' },
+];
+
+const faqItems = [
+  { q: 'Why is the price range so wide for some materials?', a: "Because it's built from what real Omaha contractors actually publish, not one made-up number. Vinyl's $4-$11 range reflects genuine disagreement between an older aggregator figure and two current named local contractors; engineered wood's $7-$16 range reflects one local contractor's own site disagreeing with itself across two pages. We show the real spread instead of picking a number that looks cleaner than the data actually is." },
+  { q: 'Is the permit fee included in these price ranges?', a: "No, the $41 minimum City of Omaha building permit fee (for projects up to $2,000 in labor and material value, scaling up from there) is separate from the material and labor cost above. A contractor should pull that permit as part of the job, not leave it to you." },
+];
+---
+<BaseLayout
+  title="Siding Installation Cost in Omaha, NE"
+  description="What siding installation costs in Omaha, NE by material: real local price bands for vinyl, fiber cement, steel, and engineered wood, plus the permit fee most sites don't mention."
+  extraServices={['Siding installation cost estimate', 'Siding replacement cost estimate']}
+>
+  <div class="hero">
+    <img class="hero-bg" src="/images/siding-measurement-estimate-closeup.jpg" alt="Measuring a section of exterior siding wall ahead of a cost estimate" width="1600" height="900" loading="eager" fetchpriority="high" />
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Cost, by material</p>
+        <h1>What does siding installation cost in Omaha, NE?</h1>
+        <p class="lede">Real published local price bands, by material, plus the city permit fee and code requirements most cost-guide sites leave out entirely.</p>
+        <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      </div>
+      <HeroLeadForm />
+    </div>
+  </div>
+
+  <ServiceBand headline="An honest Omaha siding price range before anyone quotes you. Call and get a number today." bullets={bandBullets} />
+
+  <section id="by-material">
+    <div class="wrap">
+      <Toc links={tocLinks} />
+      <p class="eyebrow">Sourced from real Omaha contractors</p>
+      <h2>Cost by material, installed per square foot</h2>
+      <p class="lead-out">These ranges are built from prices real Omaha-area siding contractors and cost-reporting sites publish, cross-checked against national benchmarks where the local data was thin. They're estimates, not quotes; your home's size, condition, and trim complexity move the number.</p>
+      <PriceTiers
+        heading="Omaha siding cost by material"
+        note="Installed cost, per square foot. Sourced from published Omaha contractor pricing, cross-checked against national ranges. Estimates, not quotes."
+        tiers={priceTiers}
+      />
+    </div>
+  </section>
+
+  <section id="permit" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">The cost nobody lists</p>
+      <h2>The city permit fee</h2>
+      <ul class="facts">
+        <li><b>A $41 minimum permit fee</b>The City of Omaha's own Planning Department confirms a building-permit minimum fee of $41 for projects up to $2,000 in labor-and-material value, scaling upward with project value. This is a primary-source city figure, separate from the siding project's own material and labor cost.<cite>City of Omaha Planning Department, Building and Development Division FAQ</cite></li>
+        <li><b>Historic-district permit review can add time and cost</b>Benson, annexed by Omaha in 1917, has carried a National Register-listed commercial historic district since 2020 (41 contributing buildings). Homes in districts like this go through additional exterior-material review before a permit clears, a real, planning-ahead cost factor for older-neighborhood homeowners.<cite>Nebraska Realty, "Benson: 10 Things You Probably Didn't Know"</cite></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="code">
+    <div class="wrap">
+      <p class="eyebrow">What the code actually requires</p>
+      <h2>Omaha's building code sets real engineering numbers</h2>
+      <ul class="facts">
+        <li><b>105-120 mph design wind speed</b>The City of Omaha's own adopted residential code (2018 IRC, as amended by the city) sets a design wind speed of 105-120 mph, Exposure category B or C, a frost depth of 42 inches, and a ground snow load of 25 psf. These numbers determine what fastening and wind-uplift rating siding, especially vinyl, has to meet to pass inspection here.<cite>Douglas County Environmental Services, "Current Building Codes"</cite></li>
+      </ul>
+      <p class="lead-out">A contractor quoting a job in Omaha should already be building to these numbers. If a quote doesn't mention wind rating or fastening spec at all, that's worth asking about.</p>
+    </div>
+  </section>
+
+  <section id="timeline-cost" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Timeline affects the number too</p>
+      <h2>What real Omaha contractors say about timeline</h2>
+      <div class="plain">
+        <p>One real Omaha contractor publishes a <strong>1-2 week</strong> timeline for a typical siding install, "depending on the size and complexity of your home," and notes weather can cause delays.<cite>Carp's Complete Exteriors, FAQ and Omaha landing page</cite> A second contractor's published range, 3-7 days, sits at the faster end of that same spread. A tighter timeline usually means a smaller or simpler home; a multi-week timeline usually means more trim, more material, or a home queued behind weather delays, all of which move the total cost, not just the schedule.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Get an estimate</p>
+      <h2>Get a real number, fast</h2>
+      <div class="plain">
+        <p>Call and you'll get a price range on the spot, then a firm number once the job can be scoped. Send the details and a photo, and we'll come back to you the same day.</p>
+      </div>
+      <p style="margin-top:1.25rem;"><a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a></p>
+    </div>
+  </section>
+
+  <section id="faq" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Common questions</p>
+      <h2>Quick answers</h2>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>

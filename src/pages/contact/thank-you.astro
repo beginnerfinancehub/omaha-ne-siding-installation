@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/site.js';
+---
+<BaseLayout
+  title="Thanks"
+  description="Your message was sent."
+>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Got it, thanks</h1>
+        <p class="lede">Got it, that is on its way to us. If it is urgent, just call.</p>
+        <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+        <a class="btn btn-quiet" href="/">Back to home</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

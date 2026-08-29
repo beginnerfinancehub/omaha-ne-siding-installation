@@ -1,0 +1,38 @@
+---
+// Service-framing band, added 2026-08-01 (NEXT.md #38, Chair-requested). Sits
+// directly under the hero on every service page + home so a visitor reads
+// "this is a service to hire" before "here is an article about stumps."
+// Structural: lives in template.css, so every future LocalSiteLeads site
+// inherits the band and only rewrites its per-page headline/bullets, the
+// same split the rest of the network template already follows.
+// Copy register: Tier 2 (legal puffery, confident but non-specific) plus
+// the honest factual levers already true pre-tenant. Tier-3 claims
+// (licensed/insured, years serving, "our crew," real reviews) are
+// deliberately absent; see 05_Content/quality-bar.md Part 1. The CTA pair
+// mirrors the reference structure the Chair supplied (irvingtxcarpetcleaning
+// .com/air-duct-cleaner.html, autoglassnola.com/auto-glass-repair.html):
+// offer headline + phone + quote CTA, both prominent, immediately below the
+// hero. The "Get a free quote" button jumps to the hero lead form (#quote
+// -form) rather than duplicating the form here, so there is still one
+// Netlify form and one submissions inbox.
+import { SITE } from '../lib/site.js';
+interface Props {
+  headline: string;
+  bullets: string[];
+}
+const { headline, bullets } = Astro.props;
+---
+<section class="service-band">
+  <div class="wrap">
+    <div class="service-band-copy">
+      <h2>{headline}</h2>
+      <ul class="service-band-bullets">
+        {bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+    <div class="service-band-cta">
+      <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      <a class="btn btn-band-secondary" href="#quote-form">Get a free quote, send a photo</a>
+    </div>
+  </div>
+</section>

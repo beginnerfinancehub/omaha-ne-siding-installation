@@ -1,0 +1,43 @@
+---
+// Shared network hero lead-capture form (parameterized 2026-08-10, so it is
+// genuinely one component across every site instead of a copy-and-edit per
+// trade). All trade-specific copy comes from SITE.leadForm in the site's own
+// site.js; the form mechanics, field names, and Netlify wiring are identical
+// network-wide, so every submission still lands in that site's one inbox.
+import { SITE } from '../lib/site.js';
+const lf = SITE.leadForm;
+---
+<div class="hero-form" id="quote-form">
+  <h2>{lf.heading}</h2>
+  <p class="hero-form-note">{lf.note}</p>
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/contact/thank-you/">
+    <input type="hidden" name="form-name" value="contact" />
+    <p class="hp-field">
+      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+    <div class="field-row">
+      <div class="field">
+        <label for="hero-first-name">First name</label>
+        <input type="text" id="hero-first-name" name="first_name" required />
+      </div>
+      <div class="field">
+        <label for="hero-last-name">Last name</label>
+        <input type="text" id="hero-last-name" name="last_name" required />
+      </div>
+    </div>
+    <div class="field">
+      <label for="hero-phone">Phone or email</label>
+      <input type="text" id="hero-phone" name="phone" required />
+    </div>
+    <div class="field">
+      <label for="hero-message">{lf.messageLabel}</label>
+      <textarea id="hero-message" name="message" required placeholder={lf.messagePlaceholder}></textarea>
+    </div>
+    <div class="field">
+      <label for="hero-photo">{lf.photoLabel}</label>
+      <input type="file" id="hero-photo" name="photo" accept="image/*" multiple />
+    </div>
+    <button class="btn btn-call" type="submit">Send it over</button>
+  </form>
+  <p class="hero-form-alt">Prefer to talk? <a href={SITE.phoneHref}>Call {SITE.phoneDisplay}</a></p>
+</div>

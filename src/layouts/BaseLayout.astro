@@ -1,0 +1,71 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { SITE, localBusinessSchema } from '../lib/site.js';
+import '../styles/theme.css';
+import '../styles/template.css';
+
+interface Props {
+  title: string;
+  description: string;
+  extraServices?: string[];
+}
+const { title, description, extraServices = [] } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, SITE.url).href;
+const schema = localBusinessSchema({ pageUrl: canonicalUrl, description, extraServices });
+// D8 (quality-bar Part 3, item 8): title tag <= 60 chars. Append the brand
+// name only when it still fits; otherwise the page's own title (kept
+// self-contained and location-bearing per page) is the whole tag. The brand
+// still lives in og:site_name and the LocalBusiness schema. Proposed as a
+// network-wide BaseLayout improvement; back-port to site #1 closes its
+// tracked D8 title gap (a live-title change, so Chair-approved at that point).
+const fullTitle = `${title} | ${SITE.name}`;
+const titleTag = fullTitle.length <= 60 ? fullTitle : title;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${SITE.url}/og-image.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={`${SITE.url}/og-image.png`} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Site #2 CLS note, 2026-08-24: heavier font-swap reflow than site #1
+         (more display-font text per page); same optional + preload fix,
+         plus a min-height reserve on the cost caller. See NEXT.md. -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600&display=optional" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600&display=optional" rel="stylesheet" />
+    <title>{titleTag}</title>
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <!-- Cloudflare Web Analytics: PLACEHOLDER, not this site's token. This is
+         Abilene's (site #2) beacon token, carried over by the clone and
+         deliberately left disabled here rather than silently reused, which
+         would mix Omaha's traffic into Abilene's dashboard (the exact past
+         failure this guards against, see memory:
+         feedback-parameterize-per-site-tokens-on-clone.md). OPEN AT C4:
+         add omahanesidinginstall.com as its own site in Cloudflare Web
+         Analytics, swap in the real per-site token below, then remove this
+         comment. Left commented out, not wired, so nothing reports until
+         that's done. -->
+    <!-- <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_WITH_OMAHA_SIDING_TOKEN"}'></script> -->
+  </body>
+</html>

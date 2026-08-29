@@ -1,0 +1,16 @@
+---
+import { faqSchema } from '../lib/site.js';
+interface FaqItem { q: string; a: string; }
+interface Props { items: FaqItem[]; }
+const { items } = Astro.props as Props;
+const schema = faqSchema(items);
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<ul class="faq">
+  {items.map((item) => (
+    <li class="faq-item">
+      <h3>{item.q}</h3>
+      <p>{item.a}</p>
+    </li>
+  ))}
+</ul>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroLeadForm from '../components/HeroLeadForm.astro';
+import ServiceBand from '../components/ServiceBand.astro';
+import Toc from '../components/Toc.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../lib/site.js';
+
+const bandBullets = [
+  'Panel patch or full-side replace, we tell you honestly which one your damage needs',
+  'Permit pulled for you, Omaha requires one for repair work too',
+  'Call and get a price range on the spot, 7am to 7pm',
+  'Send a photo of the damage, get a ballpark back fast',
+];
+
+const tocLinks = [
+  { href: '#patch-vs-replace', label: 'Patch vs. replace' },
+  { href: '#hail-history', label: 'Real Omaha hail history' },
+  { href: '#materials', label: 'What Omaha homes are sided with' },
+  { href: '#permit', label: 'Permits for repair work' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+const faqItems = [
+  { q: 'Do I need a permit to repair siding, or just to replace it?', a: 'The City of Omaha requires a building permit for siding work generally, replacement or new, the same permit category as roofing, decks, and fences. A small patch on a handful of panels is sometimes handled differently than a full re-side, but the honest answer is to ask before assuming repair work is permit-free.' },
+  { q: 'How old does siding damage on an older Omaha home usually look?', a: 'It depends on the material and the era. A 1913 Craftsman bungalow in Field Club and a 1960s raised-ranch in Old Millard East have very different original siding, and matching new material or color to an older, weathered original is often the harder part of a repair job, not the install itself.' },
+];
+---
+<BaseLayout
+  title="Siding Repair in Omaha, NE"
+  description="Siding repair in Omaha, NE: patch vs. full replace, real local hail history, and Omaha's permit requirement for repair work, not just new installs."
+  extraServices={['Siding repair', 'Siding panel replacement']}
+>
+  <div class="hero">
+    <img class="hero-bg" src="/images/siding-panel-repair-replacement.jpg" alt="A damaged vinyl siding panel being removed for replacement, illustrating the repair process" width="1600" height="900" loading="eager" fetchpriority="high" />
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Repair</p>
+        <h1>Siding repair in Omaha, NE</h1>
+        <p class="lede">Cracked panels, storm damage, or just a few boards gone bad. We'll tell you honestly whether it's a patch job or time to replace the whole side.</p>
+        <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      </div>
+      <HeroLeadForm />
+    </div>
+  </div>
+
+  <ServiceBand headline="Siding repair across the Omaha metro, patch or full replace, priced honestly." bullets={bandBullets} />
+
+  <section id="patch-vs-replace">
+    <div class="wrap">
+      <Toc links={tocLinks} />
+      <p class="eyebrow">The real question</p>
+      <h2>Patch it, or replace the whole side?</h2>
+      <p class="lead-out">A handful of cracked or missing panels on one wall is usually a patch job, assuming the exact material and color are still available or close enough not to look patched. Widespread cracking, warping, or damage across multiple sides usually means the material has reached the end of its useful life and a full replacement (see our <a href="/siding-installation-and-replacement/">installation &amp; replacement page</a>) makes more sense than chasing repairs one storm at a time.</p>
+    </div>
+  </section>
+
+  <section id="hail-history" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">This isn't hypothetical here</p>
+      <h2>Real Omaha hail history behind a lot of repair calls</h2>
+      <ul class="facts">
+        <li><b>3.75-inch hail hit Omaha in June 2017</b>On June 29, 2017, NOAA recorded 3.75-inch hail (baseball to softball range) in Omaha at 8:40pm, one minute after a 2.00-inch report in the nearby Gibson area, one storm cell producing escalating hail size as it crossed the city.<cite>NOAA/NCEI Storm Events Database</cite></li>
+        <li><b>South Omaha saw hail again in June 2024</b>On June 25, 2024, NOAA recorded 2.50-inch hail in South Omaha at 4:09pm, a separate storm date roughly two weeks after that month's larger multi-state severe-weather event, 2024 wasn't a single-storm year for Omaha hail risk.<cite>NOAA/NCEI Storm Events Database</cite></li>
+      </ul>
+      <p class="lead-out">If your siding damage traces back to a specific storm date, we can help you document it. See the <a href="/storm-hail-damage-siding-repair/">storm &amp; hail damage page</a> for the fuller local storm history and how the insurance side typically works.</p>
+    </div>
+  </section>
+
+  <section id="materials">
+    <div class="wrap">
+      <p class="eyebrow">What's actually on Omaha homes</p>
+      <h2>The materials most likely to need repair here</h2>
+      <ul class="facts">
+        <li><b>Four materials dominate the Omaha market</b>A Nebraska-headquartered roofing and siding contractor with an Omaha location names the top siding types on Omaha-area homes as steel (metal), fiber cement, composite, and vinyl. Whichever your home has, repair material and technique differ by type, matching an old vinyl panel is a very different job than patching fiber cement.<cite>McKinnis, "Top Siding Types in Omaha, NE"</cite></li>
+        <li><b>Field Club's Abbott House shows how old original siding can get</b>The Abbott House, a Craftsman-style bungalow in Field Club, was built in 1913 for illusionist and inventor David P. Abbott; the Omaha Magical Society now runs it as a museum. A concrete example of what a century-plus-old Omaha home's original exterior detailing actually looks like.<cite>Homes.com, Field Club Neighborhood Guide</cite></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="permit" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Don't skip this</p>
+      <h2>Omaha requires a permit for siding work, repair included</h2>
+      <div class="plain">
+        <p>The City of Omaha requires a building permit for siding work, replacement or new, the same permit category as roofing, decks, and fences; by contrast, painting, wallpapering, and flooring don't require one.<cite>Welcome Home Team @ Better Homes and Gardens, "To Permit or Not to Permit?", citing City of Omaha permitting rules</cite> We pull the permit as part of the job rather than leave it to you to sort out.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Get an estimate</p>
+      <h2>Get a real number, fast</h2>
+      <div class="plain">
+        <p>Call and you'll get a price range on the spot, then a firm number once the damage can be seen. Send a photo and we'll come back to you the same day.</p>
+      </div>
+      <p style="margin-top:1.25rem;"><a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a></p>
+    </div>
+  </section>
+
+  <section id="faq" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Common questions</p>
+      <h2>Quick answers</h2>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>

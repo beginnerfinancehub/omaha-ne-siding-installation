@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroLeadForm from '../components/HeroLeadForm.astro';
+import { SITE } from '../lib/site.js';
+---
+<BaseLayout
+  title="About"
+  description="About this site: the clearest local guide to siding installation, repair, and hail-damage costs across the Omaha, NE metro."
+>
+  <div class="hero">
+    <img class="hero-bg" src="/images/omaha-siding-material-samples.jpg" alt="Siding material sample boards showing a few color and panel-profile options" width="1600" height="900" loading="eager" fetchpriority="high" />
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">About this site</p>
+        <h1>About this site</h1>
+        <p class="lede">The clearest local guide to what siding actually costs in the Omaha metro, and a fast estimate when you're ready.</p>
+        <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      </div>
+      <HeroLeadForm />
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="plain">
+        <p><strong>What this is.</strong> This site answers the questions an Omaha-area homeowner facing a siding project actually has: what it costs by material, whether your neighborhood's housing age and historic-district status change what's allowed, what real local storms have done to siding here, and who to call. The published number is answered personally.</p>
+        <p><strong>About the photos.</strong> This site does not yet carry photos of past installs or repairs; nothing here is presented as a past job unless it genuinely is one.</p>
+        <p><strong>How the pricing works.</strong> The ranges here are estimates, built from prices real Omaha-area siding contractors publish and cross-checked against national benchmarks, labelled as estimates throughout. A firm price comes only after your home can actually be scoped.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Before you hire anyone, us included</p>
+      <h2>Questions worth asking a siding contractor</h2>
+      <div class="plain">
+        <p>Nebraska requires roofing and siding contractors to register with the Nebraska Department of Labor under the Contractor Registration Act, Class E registration covers residential roofing, siding, replacement windows and doors, fencing, and decking, and any contractor with employees has to carry a current Workers' Compensation Certificate of Insurance on file with the state.<cite>Nebraska Department of Labor, Contractor Registration; Koley Jessen, "The Nebraska Contractor Registration Act: What You Should Know"</cite> That's separate from the City of Omaha's own building permit requirement (see our <a href="/siding-installation-cost/">cost page</a>). Worth asking any contractor directly: are you registered with the state, do you carry that insurance, and can you show a registration number? A contractor with nothing to hide will have an answer ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Get in touch</h2>
+      <p class="lead-out">Call, or send your property details through the contact page, and get a free quote back the same day.</p>
+      <p><a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      <a class="btn btn-quiet" href="/contact/">Get a free quote</a></p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+// Jump-link table of contents for long pages (site #2 "Soil Profile" layer),
+// the LeafFilter city-page pattern. Improves usability and on-page structure.
+interface Link { href: string; label: string; }
+interface Props { links: Link[]; }
+const { links } = Astro.props as Props;
+---
+<nav class="toc" aria-label="On this page">
+  <p class="toc-title">On this page</p>
+  <ul>
+    {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+  </ul>
+</nav>

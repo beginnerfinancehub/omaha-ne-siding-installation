@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroLeadForm from '../components/HeroLeadForm.astro';
+import ServiceBand from '../components/ServiceBand.astro';
+import Toc from '../components/Toc.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../lib/site.js';
+
+const bandBullets = [
+  'Real Douglas County hail dates and sizes, not a vague "storms happen here" line',
+  'We walk you through documenting damage before you talk to your insurer',
+  'Call and get a price range on the spot, 7am to 7pm',
+  'Send photos of the damage, get a ballpark back fast',
+];
+
+const tocLinks = [
+  { href: '#hail-history', label: 'Real Douglas County hail history' },
+  { href: '#how-often', label: 'How often it actually happens' },
+  { href: '#insurance', label: 'The insurance process' },
+  { href: '#material-fit', label: 'Which material holds up' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+const faqItems = [
+  { q: 'Is it worth filing an insurance claim for hail damage?', a: "That's a real question Omaha homeowners ask each other directly, and the honest answer is it depends on your policy and the extent of the damage, that's a conversation for your insurer or agent, not something we'll tell you over the phone. What we can do is document the damage clearly with photos and a written scope so you have what you need for that conversation." },
+  { q: 'Should I let a contractor talk to my insurance adjuster for me?', a: "Real local advice on this from Omaha homeowners themselves: get multiple estimates, and be cautious about an out-of-town contractor who shows up right after a storm. A local contractor who's still here next year, and who documents damage against real storm dates, is a safer bet than someone canvassing the neighborhood after a hailstorm." },
+];
+---
+<BaseLayout
+  title="Storm & Hail Damage Siding Repair in Omaha, NE"
+  description="Storm and hail damage siding repair in Omaha, NE: real Douglas County hail history by date and size, and what the insurance documentation process actually looks like."
+  extraServices={['Storm damage siding repair', 'Hail damage siding repair', 'Insurance documentation for siding damage']}
+>
+  <div class="storm-track">
+  <div class="hero">
+    <img class="hero-bg" src="/images/hail-damaged-siding-panel-closeup.jpg" alt="Vinyl siding showing visible hail dents and pitting, the kind of storm damage this page covers" width="1600" height="900" loading="eager" fetchpriority="high" />
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Storm &amp; hail damage</p>
+        <h1>Storm &amp; hail damage siding repair in Omaha, NE</h1>
+        <p class="lede">Real Douglas County hail dates and sizes, not a vague "storms happen in the Midwest" line, and a straight walkthrough of how to document damage before you call your insurer.</p>
+        <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      </div>
+      <HeroLeadForm />
+    </div>
+  </div>
+
+  <ServiceBand headline="Real Omaha storm history, an honest repair estimate, and help documenting the damage." bullets={bandBullets} />
+
+  <section id="hail-history">
+    <div class="wrap">
+      <Toc links={tocLinks} />
+      <p class="eyebrow">Not hypothetical, dated and sourced</p>
+      <h2>Douglas County's real hail history</h2>
+      <p class="lead-out">This isn't a generic "the Midwest gets hail" page. Every event below comes from a direct NOAA/NCEI Storm Events Database query filtered to Douglas County, Nebraska, dated, sized, and located.</p>
+      <ul class="facts">
+        <li><b>June 12-14, 2024: a $1.2 billion multi-state event</b>Up-to-baseball-sized hail hit the Omaha metro directly, part of a severe-weather system spanning Nebraska, Iowa, Kansas, Minnesota, Ohio, and Michigan with an estimated $1.2 billion in total damage.<cite>NOAA NCEI, Billion-Dollar Weather and Climate Disasters, Nebraska Summary</cite></li>
+        <li><b>April 26-28, 2024: a mile-wide tornado outbreak</b>A mile-wide tornado "heavily damaged the towns of Elkhorn, Bennington, and Blair on the outskirts of Omaha," and a separate EF-3 tornado touched down near downtown Omaha at Eppley Airfield, destroying several hangars and airplanes.<cite>NOAA NCEI, Nebraska Summary</cite></li>
+        <li><b>April 11, 2020: a direct hit on Omaha and its suburbs</b>Seven hail reports, stones up to 1.75 inches, averaging 1.36 inches; the storm also hit Gretna and La Vista, and 8,515 area properties suffered hail of 1.5 inches or larger.<cite>RestoreMasters, citing NOAA storm data</cite></li>
+        <li><b>July 28, 2023: nine hail reports in under an hour, west Omaha</b>Between 4:29pm and 5:18pm, NOAA recorded nine separate hail reports across Elk City and Elkhorn, 2.00 to 2.75 inches, all from a single storm track moving through in under 50 minutes.<cite>NOAA/NCEI Storm Events Database</cite></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="how-often" class="sunk">
+    <div class="wrap">
+      <span class="reveal-accent" aria-hidden="true"></span>
+      <p class="eyebrow">A countable frequency, not a guess</p>
+      <h2>How often does this actually happen here?</h2>
+      <div class="plain">
+        <p>A direct NOAA/NCEI query for Douglas County hail events of 2.00 inches or larger from January 2010 through today returns <strong>26 distinct events across 15 storm-days</strong>, spanning Elkhorn, Bennington, Omaha (including Millard, South Omaha, Gibson), Valley, Ralston, and Elk City. The most recent was April 17, 2025 in Bennington.<cite>NOAA/NCEI Storm Events Database</cite> That's roughly a damaging-size hail-day every year, not a once-a-decade event. A real Omaha roofing and siding contractor puts the annual average even higher: about 12 hail storms a year, "particularly during the spring and summer months," some producing stones over 2 inches.<cite>A&amp;A Roofing and Exteriors</cite></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="insurance">
+    <div class="wrap">
+      <p class="eyebrow">General process, not advice</p>
+      <h2>What the insurance side typically looks like</h2>
+      <p class="lead-out">We're not your insurer or your agent, and we won't tell you whether to file a claim, that call depends on your policy and your deductible. What we can walk through is the general process, in the order it usually goes:</p>
+      <ol class="steps">
+        <li><div><b>Document it</b>Photos of the damage, dated, from multiple angles, before anything gets repaired or replaced.</div></li>
+        <li><div><b>Get more than one estimate</b>Real Omaha homeowners advise the same thing to each other after a storm: be cautious about a contractor who shows up canvassing the neighborhood right after a hailstorm, get multiple local estimates instead.</div></li>
+        <li><div><b>Talk to your insurer or agent</b>They'll tell you whether filing makes sense for your specific policy and deductible, a conversation we're not positioned to have for you.</div></li>
+        <li><div><b>If an adjuster comes out, be there</b>A contractor's estimate and an adjuster's inspection don't always land on the same scope; homeowners who've been through it locally recommend being present for both.</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="material-fit" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">If you're replacing, not just repairing</p>
+      <h2>Which material actually holds up to Omaha hail?</h2>
+      <div class="plain">
+        <p>A real Omaha-based siding and roofing contractor states that vinyl siding typically shows visible damage starting around 1-inch hail, while James Hardie fiber-cement siding can withstand larger impacts, though it can still be damaged by hail 1.5 inches or larger; the company also cites Hardie's "HardieZone" system as engineered for regional climate zones including Nebraska's, resisting freeze-thaw cracking.<cite>Royalty Roofing, "Siding Cost in Omaha, NE"</cite> Given Douglas County's own hail-size record above, some of it well past 2 inches, that's a real consideration if you're replacing storm-damaged siding rather than just patching it. More on materials on the <a href="/vinyl-siding-installation/">vinyl</a> and <a href="/fiber-cement-siding-installation/">fiber cement &amp; engineered wood</a> pages.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Get an estimate</p>
+      <h2>Get a real number, fast</h2>
+      <div class="plain">
+        <p>Call and you'll get a price range on the spot. Send photos of the damage and we'll come back to you the same day, and help you document it either way.</p>
+      </div>
+      <p style="margin-top:1.25rem;"><a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a></p>
+    </div>
+  </section>
+
+  <section id="faq" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Common questions</p>
+      <h2>Quick answers</h2>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroLeadForm from '../components/HeroLeadForm.astro';
+import ServiceBand from '../components/ServiceBand.astro';
+import Toc from '../components/Toc.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../lib/site.js';
+
+const bandBullets = [
+  'James Hardie fiber cement and LP SmartSide engineered wood, both installed correctly',
+  "The material Omaha's own historic-preservation rules actually favor",
+  'Call and get a price range on the spot, 7am to 7pm',
+  'Send a photo and rough square footage, get a ballpark back fast',
+];
+
+const tocLinks = [
+  { href: '#fire-rating', label: 'Fire rating & close lots' },
+  { href: '#durability', label: 'Nebraska-climate durability' },
+  { href: '#historic', label: 'Historic-district approval' },
+  { href: '#engineered-wood', label: 'Where engineered wood fits' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+const faqItems = [
+  { q: 'What does fiber cement siding cost in Omaha?', a: 'Locally published ranges run about $8-$15 per sq ft installed for James Hardie fiber cement, and about $7-$16 for engineered wood (LP SmartSide), the wider engineered-wood range reflects genuine disagreement between two pages on the same local contractor\'s own site. See the full cost page for the sourcing.' },
+  { q: 'Why does fiber cement matter more in older Omaha neighborhoods?', a: "Because Omaha's own Historic Preservation Guidelines name fiber cement (\"smooth cementitious siding\") as an acceptable substitute material for historic homes, and specifically for replacing damaged original asbestos-cement siding, while the same guidelines actively discourage vinyl and metal. If your home is in Dundee, Benson, Field Club, or another historic district, that's not a marketing claim, it's the city's own written rule." },
+];
+---
+<BaseLayout
+  title="Fiber Cement & Engineered Wood Siding in Omaha, NE"
+  description="Fiber cement (James Hardie) and engineered wood (LP SmartSide) siding installation in Omaha, NE: fire rating, Nebraska-climate durability, and historic-district approval."
+  extraServices={['Fiber cement siding installation', 'James Hardie siding installation', 'Engineered wood siding installation', 'LP SmartSide installation']}
+>
+  <div class="hero">
+    <img class="hero-bg" src="/images/fiber-cement-plank-siding-installation.jpg" alt="Fiber-cement lap-plank siding being installed with a pneumatic nailer" width="1600" height="900" loading="eager" fetchpriority="high" />
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Fiber cement &amp; engineered wood</p>
+        <h1>Fiber cement &amp; engineered wood siding in Omaha, NE</h1>
+        <p class="lede">James Hardie fiber cement and LP SmartSide engineered wood, the two premium materials Omaha's own preservation rules and a local 25-year specialist both rate highest for this climate.</p>
+        <a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a>
+      </div>
+      <HeroLeadForm />
+    </div>
+  </div>
+
+  <ServiceBand headline="Fiber cement and engineered wood siding across the Omaha metro, installed to the fastening spec Omaha's code requires." bullets={bandBullets} />
+
+  <section id="fire-rating">
+    <div class="wrap">
+      <Toc links={tocLinks} />
+      <p class="eyebrow">Class A fire rating, named neighborhoods</p>
+      <h2>Why fire rating matters on close Omaha lots</h2>
+      <p class="lead-out">A local James Hardie installer ties fiber cement's Class A fire rating directly to a real Omaha housing condition: "For Omaha homeowners, this matters in three situations. The first is homes with close lot lines in neighborhoods like Dundee, Benson, and Field Club where houses sit within 10 feet of a neighboring structure. A grill fire, chimney fire, or electrical fault next door is far less likely to jump to a Hardie-clad wall."<cite>Carp's Complete Exteriors, James Hardie vs. LP SmartSide comparison</cite> The same company recommends shingle-style fiber-cement panels specifically for Dundee or Benson's Craftsman-style homes, matching period architecture to a modern, fire-rated material.<cite>Carp's Complete Exteriors, fiber cement siding page</cite></p>
+    </div>
+  </section>
+
+  <section id="durability" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Rated for this specific climate</p>
+      <h2>How it holds up to Nebraska weather</h2>
+      <div class="plain">
+        <p>A real Omaha fiber-cement and LP specialist, in business 25 years, scores fiber cement and engineered wood 10/10 on durability specifically for "significant temperature swings and intense storms common in the Nebraska climate," stating in its own FAQ: "Fiber cement and engineered wood occupy the top spot for quality. These premium options are specifically designed to withstand the significant temperature swings and intense storms common in the Nebraska climate."<cite>Midwest Siding, siding materials ranking</cite> That's a marketing ranking from the installer itself, not an independent lab test, but the underlying physics, fiber cement and engineered wood resisting temperature-swing stress better than vinyl, is standard trade knowledge, and the Nebraska-specific framing is real.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="historic">
+    <div class="wrap">
+      <p class="eyebrow">The city's own rule, not ours</p>
+      <h2>The material Omaha's historic districts actually approve</h2>
+      <ul class="facts">
+        <li><b>Fiber cement is the named acceptable substitute</b>Omaha's official Historic Preservation Guidelines name "smooth cementitious siding" as an acceptable substitute material for historic buildings, and specifically recommend fiber cement shingles to replace missing, cracked, or damaged original asbestos-cement shingle siding.<cite>City of Omaha Heritage Preservation, Guidelines Chapter 2, Section 2.5</cite></li>
+      </ul>
+      <p class="lead-out">Compare that to vinyl, which the same guidelines explicitly discourage, see our <a href="/vinyl-siding-installation/">vinyl page</a> for the full quote. If your home is in Dundee, Benson, Field Club, or one of Omaha's other historic districts, fiber cement is the material the city's own document points to.</p>
+    </div>
+  </section>
+
+  <section id="engineered-wood" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">The other premium option</p>
+      <h2>Where engineered wood (LP SmartSide) fits</h2>
+      <div class="plain">
+        <p>LP SmartSide scores well for impact and rot resistance in the same Nebraska-climate ranking cited above.<cite>Midwest Siding, siding materials ranking</cite> But it carries a lower fire rating than fiber cement: LP SmartSide is rated Class C for flame spread under ASTM E84, the specific reason a local Hardie installer names it as the less-suited material for the same close-lot-line neighborhoods, Dundee, Benson, and Field Club, discussed above.<cite>Carp's Complete Exteriors, James Hardie vs. LP SmartSide comparison</cite> For homes with more room between structures, engineered wood is a real, less expensive premium option; on a tight lot in an older neighborhood, that fire-rating gap is worth weighing before you choose.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Get an estimate</p>
+      <h2>Get a real number, fast</h2>
+      <div class="plain">
+        <p>Call and you'll get a price range on the spot, then a firm number once the job can be scoped. Send the details and a photo, and we'll come back to you the same day.</p>
+      </div>
+      <p style="margin-top:1.25rem;"><a class="btn btn-call" href={SITE.phoneHref}>Call {SITE.phoneDisplay}<small>{SITE.hours}</small></a></p>
+    </div>
+  </section>
+
+  <section id="faq" class="sunk">
+    <div class="wrap">
+      <p class="eyebrow">Common questions</p>
+      <h2>Quick answers</h2>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Omaha Siding Installation">
+  <rect width="64" height="64" rx="10" fill="#232E38"/>
+  <rect x="12" y="32" width="40" height="6" rx="1.5" fill="#4C6478"/>
+  <rect x="12" y="40" width="40" height="6" rx="1.5" fill="#6C8296"/>
+  <rect x="12" y="48" width="40" height="4" rx="1.5" fill="#9BADBB"/>
+  <path d="M32 10 L50 26 H14 Z" fill="#C1571E"/>
+</svg>

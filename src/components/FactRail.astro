@@ -1,0 +1,21 @@
+---
+// "Taylor County at a glance" honest fact-rail (site #2 "Soil Profile" layer).
+// Sits directly under the hero. Each item is a real, sourced fact already on
+// the page, not a fabricated stat (Tier-1/Tier-2 only). Structure inspired by
+// LeafFilter's local-stat strip, with the fabricated counts swapped for honest
+// county facts.
+interface Item { k: string; v: string; }
+interface Props { items: Item[]; }
+const { items } = Astro.props as Props;
+---
+<aside class="factrail" aria-label="Taylor County at a glance">
+  <span class="strata-accent" aria-hidden="true"></span>
+  <div class="factrail-inner">
+    {items.map((it) => (
+      <div class="factrail-item">
+        <span class="tick" aria-hidden="true"></span>
+        <div><span class="k">{it.k}</span><span class="v">{it.v}</span></div>
+      </div>
+    ))}
+  </div>
+</aside>
