@@ -56,16 +56,9 @@ const titleTag = fullTitle.length <= 60 ? fullTitle : title;
       <slot />
     </main>
     <Footer />
-    <!-- Cloudflare Web Analytics: PLACEHOLDER, not this site's token. This is
-         Abilene's (site #2) beacon token, carried over by the clone and
-         deliberately left disabled here rather than silently reused, which
-         would mix Omaha's traffic into Abilene's dashboard (the exact past
-         failure this guards against, see memory:
-         feedback-parameterize-per-site-tokens-on-clone.md). OPEN AT C4:
-         add omahanesidinginstall.com as its own site in Cloudflare Web
-         Analytics, swap in the real per-site token below, then remove this
-         comment. Left commented out, not wired, so nothing reports until
-         that's done. -->
-    <!-- <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_WITH_OMAHA_SIDING_TOKEN"}'></script> -->
+    <!-- Cloudflare Web Analytics: own token, added as a distinct site
+         (omahanesidinginstall.com) in Cloudflare Web Analytics 2026-08-28
+         during C4. Not shared with Abilene or Springfield. -->
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "91d67bb4c7b14b19a149e8cccafd654a"}'></script>
   </body>
 </html>
